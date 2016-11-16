@@ -1,3 +1,5 @@
+var webpackConfig = require('./webpack.config.js');
+
 module.exports = function(config) {
     config.set({
         browsers: ['Chrome'],
@@ -8,6 +10,14 @@ module.exports = function(config) {
             'app/tests/**/*.tests.jsx': ['webpack', 'sourcemap']
         },
         reporters:['mocha'],
-
+        client: {
+            mocha: {
+                timeout: '5000'
+            },
+        webpack: webpackConfig,
+        webpackServer: { 
+            noInfo: true
+        }
+        }
     });
 }

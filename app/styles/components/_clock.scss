@@ -1,0 +1,20 @@
+.clock {
+    align-items: center;
+    background-color: $clock-bg-color;
+    border: 2px solid $clock-border-color;
+    border-radius: 50%;
+    display: flex;
+    height: 14rem;
+    justify-content:  center;
+    margin: 4rem auto;
+    width: 14rem;
+}
+
+.clock-text {
+    color: $clock-text-color;
+    // rem stands for root ems which is comes from the root of the browser wich means if someone zooms in or out this font size will adjust too; 
+    font-size: 2.25rem;
+    // 300 font weight will give us some nice skinny text
+    font-weight: 300;
+
+}

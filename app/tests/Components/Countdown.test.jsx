@@ -18,6 +18,21 @@ describe('Countdown', () => {
 
             expect(countdown.state.count).toBe(10);
             expect(countdown.state.countdownStatus).toBe('started');
+
+            setTimeout(() => {
+                // this happens after one second to see if the countdown drops to 9 from 10
+                expect(countdown.state.count).toBe(9);
+            }, 1001)
+        });
+
+        it('should never set count less than zero', () => {
+            var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+            countdown.handleSetCountdown(1);
+
+            setTimeout(() => {
+                // this happens after one second to see if the countdown drops to 9 from 10
+                expect(countdown.state.count).toBe(0);
+            }, 3001)
         });
     })
 

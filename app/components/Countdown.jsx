@@ -26,6 +26,22 @@ var Countdown = React.createClass({
             }
         }
     },
+    // this gets fired right after an update to the application either to its props or to the state. it takes the next props and next state 
+    componentDidUpdate(nextProps, nextState) {
+        
+    },
+    
+    componentWillMount: function () {
+        console.log('component will mount');
+    },
+    componentDidMount: function () {
+        console.log('component did mount'); 
+    },
+    componentWillUnmount: function() {
+        console.log('component did unmount');
+        clearInterval(this.timer);
+        this.timer = undefined; 
+    },
     startTimer: function() {
         this.timer = setInterval(() => {   
             var newCount = this.state.count - 1; 

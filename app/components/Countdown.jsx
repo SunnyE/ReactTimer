@@ -26,19 +26,9 @@ var Countdown = React.createClass({
             }
         }
     },
-    // this gets fired right after an update to the application either to its props or to the state. it takes the next props and next state 
-    componentDidUpdate(nextProps, nextState) {
-        
-    },
+    // this gets fired right after an update to the application either to its props or to the state. it takes the next props and next state this is for componentWillUpdate
     
-    componentWillMount: function () {
-        console.log('component will mount');
-    },
-    componentDidMount: function () {
-        console.log('component did mount'); 
-    },
     componentWillUnmount: function() {
-        console.log('component did unmount');
         clearInterval(this.timer);
         this.timer = undefined; 
     },
@@ -48,7 +38,12 @@ var Countdown = React.createClass({
             this.setState({
             //      ternary operator used here to set the value of count to either newCount if the number in new count is >= 0 if it isnt then 0 is used.
             count: newCount >= 0 ? newCount : 0 
-            })
+            });
+
+            if(newCount === 0) {
+                this.setState({countdownStatus: 'stopped'});
+            }
+
         },  1000); 
 
     }, 

@@ -11,13 +11,15 @@ var Controls = React.createClass({
             if (countdownStatus === 'started') {
                 return <button className='button secondary'> Pause </button> 
             } else if (countdownStatus === 'paused'){
-                return <button className='button primary'> Pause </button> 
+                return <button className='button primary'> Start </button> 
             }
         }
 
         return (
-            <button className="button alert hollow"> Clear </button>
-
+            <div className='controls'>
+                {renderStartStopButton()}
+                <button className="button alert hollow"> Clear </button>
+            </div>
         )
     }
 });
